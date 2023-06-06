@@ -1,10 +1,12 @@
 const express =require("express");
 //import that exported and declared in one variable
-const empModel = require('./model/model')
+const empModel = require('./model/model');
+const cors=require('cors');//imported
 const app= new express();
 //middleware
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
+app.use(cors());
 app.get('/',(req,res)=>{res.send("hi")})
 app.get('/about',(req,res)=>{res.send("About Page")})
 app.post('/login',(req,res)=>{
